@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'title' => sanitize_input($_POST['title']),
         'content' => sanitize_input($_POST['content'])
     ];
+    // sanitize : vient supprimer/le blinder mais ça ne s'afficher pas
 
     if(sizeof($validations) === 0){
         try {
