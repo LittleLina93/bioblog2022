@@ -7,5 +7,9 @@ function sanitize_input($data){
     return $data;
 }
 
+function getSelfUrl() {
+    return htmlspecialchars(dirname($_SERVER['PHP_SELF']));
+}
+
 
 ?>
