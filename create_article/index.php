@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // sanitize : vient supprimer/le blinder mais ça ne s'affichera pas
 
     if(sizeof($validations) === 0){
-        if (isset($_FILES['image']['name'])) {
+        if (!empty($_FILES['image']['name'])) {
             $target_dir = '../uploads/'; //dans quel dossier on va sauver les images
             $target_file = $target_dir . $_FILES['image']['name'];
             move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
