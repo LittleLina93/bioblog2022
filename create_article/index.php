@@ -23,9 +23,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'title' => sanitize_input($_POST['title']),
         'content' => sanitize_input($_POST['content'])
     ];
-    // sanitize : vient supprimer/le blinder mais ça ne s'afficher pas
+    // sanitize : vient supprimer/le blinder mais ça ne s'affichera pas
 
     if(sizeof($validations) === 0){
+        if (isset($_FILES['image']['name'])) {
+            $target_dir = '../uploads/'; //dans quel dossier on va sauver les images
+            $target_file = $target_dir . $_FILES['image']['name'];
+            move_uploaded_file($_FILES['image']['tmp_name'], $target_file);
+            $article['image'] = $target_file;
+        }
         try {
             insertArticle($article);
             //header('location: ../articles');
