@@ -1,6 +1,6 @@
 <?php
 
-function sanitize_input($data){
+function sanitize_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -10,6 +10,3 @@ function sanitize_input($data){
 function getSelfUrl() {
     return htmlspecialchars(dirname($_SERVER['PHP_SELF']));
 }
-
-
-?>

@@ -2,10 +2,17 @@
 
 require_once '../helpers/auth-helper.php';
 
-prevent_not_connected(true);
+init_session();
 
-require "./model.php";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['logout'])) {
+        $_SESSION['login'] = null;
+        session_destroy();
+    }
+}
 
-require "./view.php";
+prevent_not_connected(false);
 
-?>
+require './model.php';
+
+require './view.php';
