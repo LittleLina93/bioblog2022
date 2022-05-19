@@ -7,6 +7,9 @@ require_once '../helpers/auth-helper.php';
 
 #region Post logic
 
+//echo password_hash('HelloYou',PASSWORD_DEFAULT);
+//die;
+
 $hasError = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
